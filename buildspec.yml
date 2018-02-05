@@ -11,4 +11,4 @@ phases:
       - mvn clean package
 artifacts:
   files:
-    - target/java-api-REST-lambda-0.1.jar
+    - target/java-api-REST-lambda-0.*.jar
