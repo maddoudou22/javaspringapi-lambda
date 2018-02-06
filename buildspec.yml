@@ -4,7 +4,6 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - chmod +x bin/rspec
       - pip install --upgrade awscli
       - mvn test
       - mvn clean package
