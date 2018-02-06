@@ -21,7 +21,7 @@ public class javaApiRESTLambdaHandler {
     }
 
     public String myTestHandler(String name, Context context) {
-        return String.format("Hello pom test %s.", name);
+        return String.format("Hello change %s.", name);
     }
 
     private boolean isPrime(long n) {

@@ -4,11 +4,11 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - pip install --upgrade awscli
       - mvn test
-  post_build:
-    commands:
-      - echo Build completed on `date`
       - mvn clean package
-artifacts:
+      - rm -rf target src buildspec.yml pom.xml
+      - aws cloudformation package --template JavaSpringApiLambdaChangeset.yml --s3-bucket $S3_BUCKET --output-template JavaSpringApiLambdaChangesetExport.yml
+artifacts: 
   files:
     - target/java-api-REST-lambda-0.*.jar
