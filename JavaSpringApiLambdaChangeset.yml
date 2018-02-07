@@ -5,9 +5,12 @@ Resources:
   JavaSpringApiLambdaFunction:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: hello.handler.javaApiRESTLambdaHandler::myTestHandler
       CodeUri: s3://S3_BUCKET/S3_NAME/target/COMPILED_JAR
+      Handler: hello.handler.javaApiRESTLambdaHandler::myTestHandler
       Runtime: java8
+      AutoPublishAlias: live
+      DeploymentPreference:
+        Type: AllAtOnce
       Events:
         GetEvent:
           Type: Api
