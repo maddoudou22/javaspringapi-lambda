@@ -7,8 +7,11 @@ phases:
       - pip install --upgrade awscli
       - mvn test
       - mvn clean package
-      - echo S3_BUCKET = $S3_BUCKET
-      - aws cloudformation package --template JavaSpringApiLambdaChangeset.yml --s3-bucket $S3_BUCKET --output-template JavaSpringApiLambdaChangesetExport.yml
+      - COMPILED_JAR="$(ls target/*.jar | xargs -n 1 basename)"
+      - FORMAT_S3_TARGET=${TARGET_S3_BUCKET_AND_SUBFOLDERS//\//\\/}
+      - sed -i "s/TARGET_S3_BUCKET_AND_SUBFOLDERS/$FORMAT_S3_TARGET/g" JavaSpringApiLambdaChangesetNew.yml
+      - sed -i "s/COMPILED_JAR/$COMPILED_JAR/g" JavaSpringApiLambdaChangesetNew.yml
 artifacts: 
   files:
-    - JavaSpringApiLambdaChangesetExport.yml
+    - JavaSpringApiLambdaChangeset.yml
+    - java-api-REST-lambda-0.*.jar

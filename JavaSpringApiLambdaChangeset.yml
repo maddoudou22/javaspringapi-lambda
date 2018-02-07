@@ -5,6 +5,7 @@ Resources:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: hello.handler.javaApiRESTLambdaHandler::myTestHandler
+      CodeURI: s3://TARGET_S3_BUCKET_AND_SUBFOLDERS/COMPILED_JAR
       Runtime: java8
       Events:
         GetEvent:
