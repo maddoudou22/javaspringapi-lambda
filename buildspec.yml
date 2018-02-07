@@ -16,11 +16,9 @@ phases:
   post_build:
     commands:
       - echo S3_BUCKET=$S3_BUCKET
-      - echo S3_NAME=$S3_NAME
       - rm target/original-*
       - COMPILED_JAR="$(ls target/*.jar | xargs -n 1 basename)"
       - sed -i "s/S3_BUCKET/$S3_BUCKET/g" $CFN_TEMPLATE_FILE
-      - sed -i "s/S3_NAME/$S3_NAME/g" $CFN_TEMPLATE_FILE
       - sed -i "s/COMPILED_JAR/$COMPILED_JAR/g" $CFN_TEMPLATE_FILE
 
 artifacts: 
