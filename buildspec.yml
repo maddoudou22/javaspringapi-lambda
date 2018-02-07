@@ -7,7 +7,10 @@ phases:
       - pip install --upgrade awscli
       - mvn test
       - mvn clean package
+      - mv target/java-api-REST-lambda-0.*.jar .
+      - rm -rf src target buildspec.yml pom.xml
       - aws cloudformation package --template JavaSpringApiLambdaChangeset.yml --s3-bucket $S3_BUCKET --output-template JavaSpringApiLambdaChangesetExport.yml
 artifacts: 
   files:
-    - target/java-api-REST-lambda-0.*.jar
+    - java-api-REST-lambda-0.*.jar
+    - JavaSpringApiLambdaChangesetExport.yml
