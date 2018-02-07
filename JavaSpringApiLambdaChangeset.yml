@@ -6,13 +6,10 @@ Resources:
     Properties:
       Handler: hello.handler.javaApiRESTLambdaHandler::myTestHandler
       Runtime: java8
-      AutoPublishAlias: live2
-      DeploymentPreference:
-        Type: AllAtOnce
       Events:
         GetEvent:
           Type: Api
           Properties:
             Path: /
-            Method: post
+            Method: get
 
