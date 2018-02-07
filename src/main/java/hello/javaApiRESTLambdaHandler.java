@@ -9,7 +9,7 @@ public class javaApiRESTLambdaHandler {
     public String myHandler(int input, Context context) {
         LambdaLogger logger = context.getLogger();
         StringBuilder result = new StringBuilder("");
-        result.append("Input Parameter " + input + " is ");
+        result.append("Input Parameter " + input + " is ! ");
 
         if(isPrime(input)) {
             result.append("a PRIME");
