@@ -7,14 +7,14 @@ phases:
       - pip install --upgrade awscli
       - mvn test
       - mvn clean package
-      - echo TARGET_S3_BUCKET_AND_SUBFOLDERS = $TARGET_S3_BUCKET_AND_SUBFOLDERS
+      - echo S3_BUCKET=$S3_BUCKET
+      - echo S3_NAME=$S3_NAME
+      - rm target/original-*
       - COMPILED_JAR="$(ls target/*.jar | xargs -n 1 basename)"
-      - echo COMPILED_JAR = $COMPILED_JAR
-      - FORMAT_S3_TARGET=${TARGET_S3_BUCKET_AND_SUBFOLDERS//\//\\/}
-      - echo FORMAT_S3_TARGET = $FORMAT_S3_TARGET
-      - sed -i "s/TARGET_S3_BUCKET_AND_SUBFOLDERS/$FORMAT_S3_TARGET/g" JavaSpringApiLambdaChangesetNew.yml
-      - sed -i "s/COMPILED_JAR/$COMPILED_JAR/g" JavaSpringApiLambdaChangesetNew.yml
+      - sed -i "s/S3_BUCKET/$S3_BUCKET/g" JavaSpringApiLambdaChangeset.yml
+      - sed -i "s/S3_NAME/$S3_NAME/g" JavaSpringApiLambdaChangeset.yml
+      - sed -i "s/COMPILED_JAR/$COMPILED_JAR/g" JavaSpringApiLambdaChangeset.yml
 artifacts: 
   files:
     - JavaSpringApiLambdaChangeset.yml
-    - java-api-REST-lambda-0.*.jar
+    - *.jar
