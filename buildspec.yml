@@ -19,9 +19,9 @@ phases:
       - pip install --upgrade awscli
       - mv target/java-api-REST-lambda-*.jar .
       - rm -rf target src buildspec.yml pom.xml
-      - aws cloudformation package --template JavaSpringApiLambdaChangeset.yml --s3-bucket $S3_BUCKET --output-template JavaSpringApiLambdaChangesetToapply.yml
+      - aws cloudformation package --template JavaSpringApiLambdaChangeset.yml --s3-bucket $S3_BUCKET --output-template JavaSpringApiLambdaChangeU.yml
 
 artifacts: 
   files:
-    - JavaSpringApiLambdaChangesetToapply.yml
+    - JavaSpringApiLambdaChangeU.yml
     - java-api-REST-lambda-*.jar
