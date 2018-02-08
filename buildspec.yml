@@ -15,6 +15,7 @@ phases:
 
   post_build:
     commands:
+      - echo S3_BUCKET = $S3_BUCKET
       - pip install --upgrade awscli
       - mv target/java-api-REST-lambda-*.jar .
       - rm -rf target src buildspec.yml pom.xml
