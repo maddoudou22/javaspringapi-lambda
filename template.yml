@@ -7,6 +7,7 @@ Resources:
     Properties:
       Handler: hello.handler.javaApiRESTLambdaHandler::myTestHandler
       Runtime: java8
+      CodeUri: ./
       Events:
         GetEvent:
           Type: Api
