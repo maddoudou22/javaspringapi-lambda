@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Test de dépoiement depuis Codepipeline
+Resources:
+  DeployLambdaPipe-function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: hello.handler.javaApiRESTLambdaHandler::myTestHandler
+      Runtime: java8
+      CodeUri: ./
+      Events:
+        MyTimeApi:
+          Type: Api
+          Properties:
+            Path: /
+            Method: GET
