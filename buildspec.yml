@@ -1,10 +1,5 @@
 version: 0.2
 
-env:
-  variables:
-    CFN_TEMPLATE_FILE: "JavaSpringApiLambdaChangeset.yml"
-    COMPILED_CODE_LOCATION: "target/java-api-REST-lambda-*.jar" 
-
 phases:
   build:
     commands:

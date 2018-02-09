@@ -1,8 +1,9 @@
-AWSTemplateFormatVersion: "2010-09-09"
-Transform: 'AWS::Serverless-2016-10-31'
+AWSTemplateFormatVersion: 2010-09-09
+Transform:
+- AWS::Serverless-2016-10-31
 Resources:
   JavaSpringApiLambdaFunction:
-    Type: 'AWS::Serverless::Function'
+    Type: AWS::Serverless::Function
     Properties:
       Handler: hello.handler.javaApiRESTLambdaHandler::myTestHandler
       Runtime: java8
@@ -11,5 +12,5 @@ Resources:
           Type: Api
           Properties:
             Path: /
-            Method: post
+            Method: get
 
