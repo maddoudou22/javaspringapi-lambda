@@ -12,7 +12,7 @@ phases:
       - pip install --upgrade awscli
       - mvn test
       - mvn clean package
-      - aws cloudformation package --template JavaSpringApiLambdaChangeset.yml --s3-bucket $S3_BUCKET --output-template JavaSpringApiLambdaChangeU.yml
+      - aws cloudformation package --template JavaSpringApiLambdaChangeset.yml --s3-bucket $S3_BUCKET --output-template JavaSpringApiLambda-export.yml
 artifacts: 
   files:
-    - JavaSpringApiLambdaChangeU.yml
+    - JavaSpringApiLambda-export.yml
